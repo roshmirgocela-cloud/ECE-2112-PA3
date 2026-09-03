@@ -1,5 +1,6 @@
 # ECE-2112-PA3
 Made by: Roshmir Janylin C. Gocela | 2ECE-B
+
 The content of this repository contains the Programming Assignment 1 for our course "ECE 2112: Advanced Computer Programming and Algorithms" this S.Y. 2026-2027. This project covers three python data analysis problems pertaining to Module 3 - Pandas.
 ___
 ## PROBLEMS: PYTHON DATA ANALYSIS (PANDAS)
