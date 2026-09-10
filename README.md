@@ -1,34 +1,67 @@
 # ECE-2112-PA3
-Made by: Roshmir Janylin C. Gocela | 2ECE-B
+### Made by: Roshmir Janylin C. Gocela | 2ECE-B
 
-The content of this repository contains the Programming Assignment 1 for our course "ECE 2112: Advanced Computer Programming and Algorithms" this S.Y. 2026-2027. This project covers three python data analysis problems pertaining to Module 3 - Pandas.
-___
+The content of this repository contains the Programming Assignment 3 for our course "ECE 2112: Advanced Computer Programming and Algorithms" this S.Y. 2026-2027. This project covers three numerical python problems pertaining to Module 3 - Pandas.
+
+## OBJECTIVE:
+The main objectives of this laboratory activity are to:
+1. load a CSV dataset into a Pandas DataFrame;
+2. select rows and columns using positional and label-based indexing;
+3. filter records using conditions on a DataFrame column; and
+4. extract a well-defined subset of data without changing the source data.
+## 
+
 ## PROBLEMS: PYTHON DATA ANALYSIS (PANDAS)
-### A. Positional and Label-based Slicing
+### A. POSITIONAL AND LABEL-BASED SLICING 
 
-After loading cars, complete the following operations.
-    a. Display the shape and complete list of column names of cars.
-    b. Using positional slicing, create cars 6 to 10 containing rows 6 through 10 of the dataset, where
-    the first data row is row 1.
-    c. From cars 6 to 10, display only the columns Model, mpg, cyl, hp, and gear, in that order.
-Requirement: The row selection in part (b) must use iloc; the column selection in part (c) must
-use column labels.
+Download the Data set cars.cvs, then display the shape and complete list of column names of cars. Using positional slicing, create cars 6 to 10 containing rows 6 through 10 of the dataset, where the first data row is row 1. From cars 6 to 10, display only the columns Model, mpg, cyl, hp, and gear, in that order.
 
-### B. Model Lookup
+#### The following functions and methods were used in this problem:
+* `pd.read_csv()` - reads a comma-separated values (CSV) file into a Pandas DataFrame.
+* `DataFrame.shape` - returns a tuple representing the dimensionality (rows, columns) of the DataFrame.
+* `DataFrame.columns` - retrieves the column labels of the DataFrame.
+* `DataFrame.iloc[]` - purely integer-location based indexing for selection by position.
+* `DataFrame.loc[]` - purely label-based indexing for selection by label or boolean condition.
 
-Use Boolean indexing on the Model column to answer both requests.
-  a. Display the complete row for Toyota Corolla.
-  b. For Pontiac Firebird, display only Model, mpg, hp, and wt.
-Store the two results in toyota and pontiac, respectively. Do not use a hard-coded row number to
-locate either model.
+    * This method is Required for Checks & Verification: 
+    ``` The row selection in part (b) must use iloc; the column selection in part (c) must use column labels. ```
+    ```
+    Shape of cars: (32, 12)
 
-### C. Multi-model Subsetting
+    Total columns: 12 (['Model', 'mpg', 'cyl', 'disp', 'hp', 'drat', 'wt', 'qsec', 'vs', 'am', 'gear', 'carb'])
 
-Create a DataFrame named selected cars containing only the records for three models: Datsun 710,
-Lotus Europa, and Ferrari Dino.
-For these records, retain only Model, mpg, cyl, hp, and gear. Select the rows by their model values
-rather than by row numbers. Display selected cars and its shape.
-Required check: The final DataFrame must contain exactly three rows and five columns.
+    Rows extracted in cars_6_to_10: Rows 6 to 10 (Valiant, Duster 360, Merc 240D, Merc 230, Merc 280)
 
-__
+   Columns displayed in Part c: Model, mpg, cyl, hp, gear
+    ```
 
+### B. MODEL LOOKUP
+
+Use Boolean indexing on the Model column to look up and display exact records without hardcoding row numbers. For displaying the complete row for Toyota Corolla and For Pontiac Firebird, display only Model, mpg, hp, and wt.
+
+#### The following functions and methods were used in this problem:
+* `Series == value - creates a Boolean conditional mask matching target text values.
+* `DataFrame.loc[condition]` - extracts complete observation rows meeting the Boolean condition.
+* `DataFrame.loc[condition, columns]` - selects specific labeled columns for the matching records.
+
+### C. MULTI-MODEL SUBSETTING
+
+Create a DataFrame named selected_cars containing only the records for Datsun 710, Lotus Europa, and Ferrari Dino. Retain only the columns Model, mpg, cyl, hp, and gear.
+
+#### The following functions and methods were used in this problem:
+* `Series.isin(list)` - checks whether each element in the Series is contained in the specified values.
+* `DataFrame.loc[condition, columns]` - filters rows satisfying the Boolean condition while projecting designated columns.
+* `DataFrame.shape` - returns the tuple representing the dimensionality of the subset.
+
+    * This method is Required for Checks & Verification: 
+    ``` The final DataFrame must contain exactly three rows and five columns. ```
+    ```
+Exact shape of selected_cars: (3, 5)
+Models included: Datsun 710, Lotus Europa, and Ferrari Dino
+Variables displayed: Model, mpg, cyl, hp, gear
+    ```
+
+
+
+---
+Thank you for reading! To run and verify the solutions, download cars.csv file listed, and open ECE2112_PA3_GOCELA.ipynb in Jupyter Notebook, JupyterLab, or Google colab, and execute all cells.
